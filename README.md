@@ -1,3 +1,7 @@
+For an advanced implementation of this see: https://github.com/ibidem/mjolnir-cfs
+
+-
+
 See: CCS-Standard.md for the standard
 
 See: ccs.php for an example implementation
