@@ -1,4 +1,6 @@
-For an advanced implementation of this see: https://github.com/ibidem/mjolnir-cfs
+THIS REPOSITORY IS A VERY OLD IMPLEMENTATION
+
+See: https://github.com/ibidem/mjolnir-cfs
 
 -
 
