@@ -30,8 +30,8 @@ MAY choose to map to the \app namespace directly if they are SPECIFIC to the
 project (ie. non-reusable, final, or not intended as reusable), to allow for 
 simpler code by avoiding redundant namespace notation.
 
-    * no class in the CCS should ever be defined global; the equivalent to 
-	classes defined in the global namespace are classes defined in \app
+  <ul><li>no class in the CCS should ever be defined global; the equivalent to 
+  classes defined in the global namespace are classes defined in \app</li></ul><br>
 
 3. The class name MUST map to a directory or file inside the /classes/ directory 
 of each module. If EXT is defined it will be used as the mapped file's 
@@ -41,28 +41,28 @@ defined as ".php".
 
 4. When a class is loaded:
 
-    * if the namespace is \app then the class is in the project namespace and 
-    the autoloader MUST look into the CCS for the first file matching the 
-    Class_Name pattern, load it and if the module from which it was loaded was 
-    not mapped to the \app namespace define a class_alias for it from the 
-    module's namespace to the \app namespace.
+   <ul><li>if the namespace is \app then the class is in the project namespace and 
+   the autoloader MUST look into the CCS for the first file matching the 
+   Class_Name pattern, load it and if the module from which it was loaded was 
+   not mapped to the \app namespace define a class_alias for it from the 
+   module's namespace to the \app namespace.</li>
 
-    * if the namespace of the requested class is not \app then the class is 
-    simply loaded directly from the module matching the namespace.
+   <li>if the namespace of the requested class is not \app then the class is 
+   simply loaded directly from the module matching the namespace.</li>
 	
-	* if the namespace of the requested class is the global namespace the 
-	autoloading process MUST fail imediatly
+   <ul><li>if the namespace of the requested class is the global namespace the 
+   autoloading process MUST fail imediatly</li>
 	
-	* the class and namespace are always considered lowercase when computing the
-	path; so as to support default PHP behaviour (case insensitive namespace and 
-	classes)
+   <li>the class and namespace are always considered lowercase when computing the
+   path; so as to support default PHP behaviour (case insensitive namespace and 
+   classes)</li></ul></li></ul><br>
 
 5. All logic MUST BE designed to work as if the \app namespace is the ONLY 
 namespace that exists. Classes should never rely on any other namespace, not 
 even their own namespace. All modules that are not under the \app namespace 
 MUST ALWAYS use the \app version of ANY other class they call. If the class 
 is making use of a static method within itself it should ALWAYS use the 
-(static)[http://php.net/manual/en/language.oop5.late-static-bindings.php]
+<a href="http://php.net/manual/en/language.oop5.late-static-bindings.php">static</a>
 keyword for methods with public and protected access and the self keyword for 
 members with private access, and NEVER the class name; thus allow for extension 
 of the class to a different name with out breaking it.
